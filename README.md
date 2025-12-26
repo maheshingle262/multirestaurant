@@ -1,10 +1,10 @@
-# multirestaurant  
 # 🍽️ Multi-Restaurant Food Ordering System
 
-A **production-ready full-stack Multi-Restaurant Food Ordering Web Application** where users can browse menus from multiple restaurants, place orders, and restaurant owners/admins can manage menus and orders.  
-The project is **securely deployed on AWS EC2 with a custom domain**.
+A **production-ready full-stack Multi-Restaurant Food Ordering Web Application** where users can browse menus from multiple restaurants, place orders, and restaurant owners/admins can manage menus and orders.
 
-🌐 **Live Website:** https://multirestaurant.store  
+The application is **securely deployed on AWS EC2** with a **custom domain and SSL certificate**.
+
+🌐 **Live Website:** https://multirestaurant.store
 
 ---
 
@@ -13,15 +13,16 @@ The project is **securely deployed on AWS EC2 with a custom domain**.
 - Full-stack application using **Spring Boot + React**
 - Secure authentication using **JWT**
 - Cloud database using **MongoDB Atlas**
-- Deployed on **AWS EC2** with **Nginx**
-- Custom domain with **SSL certificate**
-- Industry-standard project structure & security practices
+- **AWS EC2 deployment with Nginx Reverse Proxy**
+- Backend packaged as **Spring Boot JAR**
+- Custom domain with **HTTPS (SSL)**
+- Industry-standard security & deployment practices
 
 ---
 
 ## 🧑‍💻 Tech Stack
 
-### 🔹 Backend (Spring Boot)
+### 🔹 Backend
 - Java
 - Spring Boot
 - Spring MVC
@@ -29,64 +30,67 @@ The project is **securely deployed on AWS EC2 with a custom domain**.
 - JWT Authentication
 - RESTful APIs
 - MongoDB Integration
-- Maven
+- Maven (Build Tool)
 - Role-based authorization (Admin / User)
-- Environment-based configuration (no secrets in repo)
+- Environment variable–based configuration
 
-### 🔹 Frontend (React)
+### 🔹 Frontend
 - React.js
 - JavaScript (ES6+)
 - Axios (API communication)
 - Context API (State Management)
 - Responsive UI
-- Form validation
-- Modular component architecture
+- Modular component-based architecture
 
 ### 🔹 Database
 - **MongoDB Atlas (Cloud Database)**
-- Collections for:
+- Collections:
   - Users
   - Restaurants
   - Menus
   - Orders
-  - Cart items
+  - Cart Items
 
-### 🔹 Deployment & DevOps
-- AWS EC2 (Linux server)
-- Nginx (Reverse Proxy)
+---
+
+## 🛠️ Tools & Infrastructure
+
+- **AWS EC2 (Linux Server)**
+- **Nginx Reverse Proxy**
+- **Spring Boot JAR Deployment**
+- **WinSCP** (File transfer to EC2)
+- **SSH (EC2 access)**
+- **Git & GitHub**
 - Custom Domain: **multirestaurant.store**
 - SSL Certificate (HTTPS enabled)
-- Git & GitHub
-- Secure environment variables for secrets
 
 ---
 
 ## ✨ Features
 
-### 👤 User Features
-- User Registration & Login (JWT based)
+### 👤 User
+- User Registration & Login (JWT)
 - Browse multiple restaurants
-- View restaurant menus
+- View menus
 - Add items to cart
-- Place food orders
-- Secure session handling
+- Place orders securely
 
-### 🧑‍🍳 Admin / Restaurant Owner Features
+### 🧑‍🍳 Admin / Restaurant Owner
 - Add & manage food items
 - Manage restaurant menus
-- View customer orders
+- View and manage customer orders
 - Update order status
-- Secure admin access
 
-### 🔐 Security Features
-- JWT Authentication
-- Role-based access control
-- Sensitive data protected via environment variables
+### 🔐 Security
+- JWT-based authentication
+- Role-based authorization
+- Secrets managed using environment variables
 - GitHub secret scanning compliant
 
 ---
 
 ## 📂 Project Structure
+
 multirestaurant/
 ├── backend/ # Spring Boot Application
 │ ├── controller
@@ -94,64 +98,78 @@ multirestaurant/
 │ ├── repository
 │ ├── model
 │ ├── security
-│ └── resources
+│ ├── resources
+│ └── pom.xml
 │
 ├── frontend/ # React Application
 │ ├── components
 │ ├── pages
+│ ├── context
 │ ├── services
-│ └── context
+│ └── package.json
 │
 └── README.md
 
-⚙️ How to Run Locally
 
- 🔹 Backend
+##⚙️ Build & Run (Local Setup)
+
+##🔹 Backend (Spring Boot)
 bash
 cd backend
-mvn spring-boot:run
+mvn clean package
+java -jar target/*.jar
+Runs on:
+http://localhost:8080
 
-🔹 Frontend
+🔹 Frontend (React)
 bash
-Copy code
 cd frontend
 npm install
+npm run build
 npm start
 
-🌐 Deployment Details
-Backend deployed on AWS EC2
+##🚀 Live Deployment (AWS)
 
-Frontend served using Nginx
+- Frontend & Backend deployed on AWS EC2
 
-MongoDB hosted on MongoDB Atlas
+- React frontend served using Nginx
 
-Custom domain connected: multirestaurant.store
+- Nginx configured as Reverse Proxy
 
-SSL certificate enabled (HTTPS)
+- Spring Boot application packaged as JAR
 
-🏆 What This Project Demonstrates
-Real-world Full-Stack Development
+- Backend running on port 8080
 
-Secure authentication & authorization
+- Nginx forwards requests from port 80/443 → 8080
 
-Cloud deployment experience (AWS)
+- MongoDB Atlas used as cloud database
 
-Database design & API integration
+- Files transferred to EC2 using WinSCP
 
-Clean code & scalable architecture
+- Custom domain multirestaurant.store mapped to EC2
 
-Industry-standard Git & security practices
+- SSL enabled for secure HTTPS access
 
+##🏆 What This Project Demonstrates
+- End-to-end Full Stack Development
 
-👨‍💻 Author
+- Secure REST API design
 
-Mahesh Ingle
+- Cloud database usage (MongoDB Atlas)
+
+- AWS EC2 production deployment
+
+- Nginx reverse proxy configuration
+
+- Real-world Spring Boot JAR deployment
+
+- Professional Git & security practices
+
+👨‍💻 Autho
+
+   Mahesh Ingle 
 Java Full Stack Developer
 Spring Boot | React | MongoDB | AWS
-
-
-
-
 
 
 
