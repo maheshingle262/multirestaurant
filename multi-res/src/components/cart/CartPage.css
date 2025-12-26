@@ -1,0 +1,218 @@
+/* Swiggy/Zomato Style Cart UI */
+
+/* Container */
+.cart-container {
+  padding: 20px;
+  animation: fadeIn 0.4s ease-in-out;
+  max-width: 650px;
+  margin: auto;
+}
+
+/* Header */
+.cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.clear-btn {
+  background: #ff4d4d;
+  border: none;
+  padding: 8px 12px;
+  color: white;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.clear-btn:hover {
+  background: #d93838;
+}
+
+/* Empty Cart */
+.empty-cart {
+  text-align: center;
+  padding: 40px;
+  color: #888;
+  font-size: 18px;
+}
+
+/* Cart Cards */
+.cart-card {
+  border: 1px solid #eee;
+  padding: 14px;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  transition: 0.25s;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.cart-card:hover {
+  transform: scale(1.01);
+  box-shadow: 0 3px 14px rgba(0,0,0,0.1);
+}
+
+/* Texts */
+.food-name {
+  font-size: 17px;
+  font-weight: 600;
+}
+.hotel-name {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 4px;
+}
+.price-line {
+  font-size: 15px;
+}
+
+/* Quantity Section */
+.qty-section {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.qty-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  font-weight: bold;
+  border: none;
+  background: #f0f0f0;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.qty-btn:hover {
+  background: #ddd;
+}
+
+.qty-number {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.remove-btn {
+  background: transparent;
+  border: none;
+  color: #ff4d4d;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* Footer */
+.cart-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 18px;
+  padding: 14px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.06);
+}
+
+.footer-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+/* Buttons */
+.continue-btn {
+  padding: 10px 16px;
+  background: #eee;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+}
+.continue-btn:hover {
+  background: #ddd;
+}
+
+.checkout-btn {
+  padding: 10px 16px;
+  background: #ff8c00;
+  color: white;
+  border-radius: 8px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.checkout-btn:hover {
+  background: #e67e00;
+}
+
+.checkout-btn:disabled {
+  background: #999;
+  cursor: not-allowed;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*.cart-container {
+  padding: 20px;
+  text-align: center;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+.cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.back-btn {
+  padding: 8px 15px;
+  background: #ff7043;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.cart-list {
+  margin-top: 20px;
+}
+
+.cart-item {
+  background: #fff7e6;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.place-order-btn {
+  background: #ff9800;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  margin-top: 20px;
+  cursor: pointer;
+  font-size: 18px;
+}
+*/

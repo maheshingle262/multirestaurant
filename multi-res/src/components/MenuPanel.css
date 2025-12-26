@@ -1,0 +1,248 @@
+
+.old-menu-container {
+  padding: 30px;
+  text-align: center;
+  background-color: #fffaf0;
+}
+
+.old-category-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.old-category-buttons button {
+  padding: 8px 15px;
+  border: 2px solid orange;
+  border-radius: 20px;
+  background: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.old-category-buttons button.active {
+  background-color: orange;
+  color: white;
+}
+
+.old-menu-list {
+  max-width: 700px;
+  margin: auto;
+}
+
+.old-menu-card {
+  background-color: #fff3e0;
+  padding: 12px;
+  margin: 8px 0;
+  border-radius: 10px;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.3s;
+}
+
+.old-menu-card.selected-card {
+  background-color: #ffcc80;
+  font-weight: bold;
+}
+
+.old-menu-card input {
+  width: 60px;
+  padding: 5px;
+}
+
+.old-menu-card button {
+  background-color: crimson;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+
+.old-selection-summary {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #fffaf2;
+  border: 2px solid orange;
+  border-radius: 10px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+
+.old-selection-summary ul {
+  list-style: none;
+  padding: 0;
+}
+
+.old-selection-summary li {
+  font-size: 16px;
+  margin: 4px 0;
+}
+
+.old-total-amount {
+  color: green;
+  font-weight: bold;
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.old-order-form input {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid orange;
+  border-radius: 6px;
+}
+
+.old-submit-btn {
+  background-color: green;
+  color: white;
+  padding: 12px;
+  font-size: 16px;
+  width: 100%;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*.menu-container {
+  padding: 30px;
+  text-align: center;
+  background-color: #fffaf0;
+}
+
+.category-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.category-buttons button {
+  padding: 8px 15px;
+  border: 2px solid orange;
+  border-radius: 20px;
+  background: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.category-buttons button.active {
+  background-color: orange;
+  color: white;
+}
+
+.menu-list {
+  max-width: 700px;
+  margin: auto;
+}
+
+.menu-card {
+  background-color: #fff3e0;
+  padding: 12px;
+  margin: 8px 0;
+  border-radius: 10px;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.3s;
+}
+
+.menu-card.selected-card {
+  background-color: #ffcc80;
+  font-weight: bold;
+}
+
+.menu-card input {
+  width: 60px;
+  padding: 5px;
+}
+
+.menu-card button {
+  background-color: crimson;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+
+.selection-summary {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #fffaf2;
+  border: 2px solid orange;
+  border-radius: 10px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+
+.selection-summary ul {
+  list-style: none;
+  padding: 0;
+}
+
+.selection-summary li {
+  font-size: 16px;
+  margin: 4px 0;
+}
+
+.total-amount {
+  color: green;
+  font-weight: bold;
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.order-form input {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid orange;
+  border-radius: 6px;
+}
+
+.submit-btn {
+  background-color: green;
+  color: white;
+  padding: 12px;
+  font-size: 16px;
+  width: 100%;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 10px;
+}*/

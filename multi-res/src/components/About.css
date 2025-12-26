@@ -1,0 +1,197 @@
+/* About.css */
+
+.about-wrapper {
+  min-height: calc(100vh - 80px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  background: linear-gradient(
+    135deg,
+    #fff6e5,
+    #ffe8cc,
+    #fff1db
+  );
+}
+
+.about-card {
+  max-width: 900px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  border-radius: 24px;
+  padding: 50px 60px;
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  text-align: center;
+  animation: floatCard 6s ease-in-out infinite;
+}
+
+@keyframes floatCard {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
+}
+
+.about-card h1 {
+  font-size: 2.8rem;
+  font-weight: 800;
+  background: linear-gradient(90deg, #ff7a00, #ff3d00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 12px;
+}
+
+.about-subtitle {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 28px;
+}
+
+.about-text {
+  font-size: 1.05rem;
+  color: #444;
+  line-height: 1.7;
+  margin-bottom: 40px;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+  margin-bottom: 40px;
+}
+
+.feature-box {
+  padding: 16px 18px;
+  border-radius: 14px;
+  background: linear-gradient(
+    135deg,
+    #ffffff,
+    #fff4e6
+  );
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.06);
+  font-weight: 600;
+  color: #333;
+  transition: all 0.3s ease;
+}
+
+.feature-box:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.12);
+}
+
+.about-quote {
+  font-size: 1.1rem;
+  font-style: italic;
+  color: #ff6b00;
+  margin-bottom: 26px;
+}
+
+.about-footer {
+  font-size: 0.95rem;
+  color: #666;
+}
+
+.about-footer span {
+  font-weight: 700;
+  color: #ff6b00;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .about-card {
+    padding: 35px 22px;
+  }
+
+  .about-card h1 {
+    font-size: 2.1rem;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* File: About.css */
+/*.about-panel {
+  padding: 40px;
+  background-color: #fffbea;
+  color: #333;
+  max-width: 800px;
+  margin: 40px auto;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1s ease;
+  text-align: center;
+}
+
+.about-panel h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #ff8c00;
+}
+
+.about-panel p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.highlight {
+  color: #e67e22;
+  font-weight: bold;
+}
+
+.quote {
+  font-size: 1.2rem;
+  margin-top: 30px;
+  font-style: italic;
+  color: #555;
+}
+
+/* Optional fade animation /
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}*/
+
+
+
+
+
+
+
+
+
+
+
+/*.about {
+  padding: 20px;
+  text-align: center;
+}
+
+.about h2 {
+  color: #d2691e;
+}*/

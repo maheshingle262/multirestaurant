@@ -1,0 +1,291 @@
+/* HotelMenu.css
+   Modern, responsive, animated styles inspired by Swiggy/Zomato.
+   Drop this file into src/components/HotelMenu.css (already imported in JS).
+
+   Features:
+   - Responsive grid, elegant cards
+   - Drawer animation for the order summary
+   - Modal for "Your Orders"
+   - Glassmorphism + soft shadows
+   - Micro-interactions (hover, focus, pressed)
+   - Smooth entrance animations and staggered card reveal
+   - Accessible reduced-motion handling
+*/
+:root{
+  --bg: #fffaf7;
+  --surface: #ffffff;
+  --muted: #8a8f98;
+  --accent: #ff6b3d; /* primary brand */
+  --accent-2: #ff9f6b; /* warm gradient end */
+  --success: #33a852;
+  --danger: #e04b4b;
+  --card-shadow: 0 6px 20px rgba(23,23,23,0.08);
+  --glass: rgba(255,255,255,0.6);
+  --glass-2: rgba(255,255,255,0.85);
+  --radius-lg: 14px;
+  --radius-md: 10px;
+  --radius-sm: 6px;
+  --speed: 260ms;
+}
+
+/* reset & base */
+*{box-sizing:border-box}
+html,body,#root{height:100%}
+body{font-family:Inter, Inter var, -apple-system, system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; background:linear-gradient(180deg,var(--bg), #fff); color:#1f2937; margin:0}
+
+.hotelmenu-wrapper{display:flex;flex-direction:column;gap:12px;min-height:100vh}
+
+/* topbar */
+.hotelmenu-topbar{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid rgba(20,20,20,0.04);backdrop-filter: blur(6px);background:linear-gradient(180deg, rgba(255,255,255,0.65), rgba(255,255,255,0.55));}
+.hotelmenu-back-btn{background:transparent;border:0;padding:8px 12px;border-radius:10px;cursor:pointer;font-weight:600;transition:all var(--speed);}
+.hotelmenu-back-btn:hover{transform:translateX(-3px);color:var(--accent)}
+
+.hotelmenu-brand{display:flex;align-items:center;gap:10px}
+.brand-dot{font-size:22px}
+.hotelmenu-name-sm{font-weight:700;font-size:16px}
+.hotelmenu-sub{font-size:12px;color:var(--muted)}
+
+.hotelmenu-tabs{display:flex;gap:8px;align-items:center}
+.tab-btn{background:linear-gradient(90deg,var(--glass-2),#fff);border:0;padding:8px 12px;border-radius:12px;cursor:pointer;font-weight:600;box-shadow:var(--card-shadow);transition:transform var(--speed), box-shadow var(--speed);}
+.tab-btn:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(0,0,0,0.08)}
+.tab-btn.ghost{background:transparent;border:1px solid rgba(0,0,0,0.06)}
+
+/* main container */
+.hotelmenu-container{padding:18px 22px;max-width:1100px;margin:18px auto;border-radius:16px;background:linear-gradient(180deg, rgba(255,255,255,0.9), rgba(250,250,250,0.8));box-shadow: 0 10px 30px rgba(2,6,23,0.05);}
+.hotelmenu-heading{margin:0 0 10px 0;font-size:20px}
+.hotelmenu-name{font-size:20px;margin:10px 0}
+.hotelmenu-name .small{font-size:14px}
+
+/* grid */
+.hotelmenu-menu-container{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
+
+.hotelmenu-card{background:linear-gradient(180deg,var(--surface), #fff);padding:14px;border-radius:12px;border:1px solid rgba(0,0,0,0.03);box-shadow:var(--card-shadow);transform-origin:center;transition:transform var(--speed), box-shadow var(--speed), border-color var(--speed);}
+.hotelmenu-card:hover{transform:translateY(-6px) scale(1.01);box-shadow:0 18px 40px rgba(12,12,12,0.08)}
+
+.menu-row{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.hotelmenu-title{font-weight:700}
+.hotelmenu-category{font-size:12px;color:var(--muted);margin-top:6px}
+.hotelmenu-price{font-weight:700;color:var(--accent)}
+
+.menu-actions{display:flex;justify-content:space-between;align-items:center;margin-top:12px}
+.qty-controls{display:flex;align-items:center;gap:8px;background:linear-gradient(180deg, #fff, rgba(250,250,250,0.9));padding:6px;border-radius:10px;border:1px solid rgba(0,0,0,0.04)}
+.qty-controls button{width:30px;height:30px;border-radius:8px;border:0;background:transparent;cursor:pointer;font-weight:700}
+.qty-controls span{min-width:20px;text-align:center}
+
+.card-actions-right{display:flex;gap:8px;align-items:center}
+.hotelmenu-add-btn{padding:8px 10px;border-radius:10px;border:0;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#fff;font-weight:700;cursor:pointer;box-shadow:0 8px 20px rgba(255,107,61,0.18);transition:transform var(--speed), box-shadow var(--speed)}
+.hotelmenu-add-btn:active{transform:scale(0.98)}
+
+.hotelmenu-place-btn{padding:8px 10px;border-radius:10px;border:1px solid rgba(0,0,0,0.06);background:transparent;cursor:pointer;font-weight:700}
+
+/* empty */
+.hotelmenu-empty{padding:30px;text-align:center;color:var(--muted)}
+
+/* order drawer */
+.order-drawer{position:fixed;right:-420px;top:90px;width:380px;max-width:92%;height:calc(100vh - 140px);background:linear-gradient(180deg, rgba(255,255,255,0.98), rgba(255,255,255,0.92));border-radius:14px;padding:12px;box-shadow:0 30px 80px rgba(10,10,10,0.12);transition:right 320ms cubic-bezier(.2,.9,.2,1);z-index:1200;overflow:hidden;display:flex;flex-direction:column}
+.order-drawer.open{right:22px}
+.order-drawer[aria-hidden="true"]{pointer-events:none;opacity:0.01}
+
+.drawer-header{display:flex;justify-content:space-between;align-items:center;padding:6px 8px}
+.drawer-header h4{margin:0}
+.close-drawer{background:transparent;border:0;font-size:20px;cursor:pointer}
+
+.order-list{flex:1;overflow:auto;padding:8px}
+.empty-note{padding:18px;color:var(--muted);text-align:center}
+.order-item{display:flex;justify-content:space-between;align-items:center;padding:10px;border-radius:10px;border:1px solid rgba(0,0,0,0.03);margin-bottom:8px;background:#fff}
+.order-item-left{max-width:60%}
+.order-name{font-weight:700}
+.order-meta{font-size:12px;color:var(--muted);margin-top:6px}
+.order-item-actions{display:flex;align-items:center;gap:8px}
+.order-item-actions button{border:0;background:transparent;cursor:pointer;padding:6px 8px;border-radius:8px}
+.order-item-actions .remove{color:var(--danger);font-weight:700}
+
+.drawer-footer{padding:8px;border-top:1px dashed rgba(0,0,0,0.04);display:flex;flex-direction:column}
+.total{font-weight:800;font-size:16px;margin-bottom:8px}
+.hotelmenu-submit-btn{padding:10px;border-radius:12px;border:0;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#fff;font-weight:800;cursor:pointer}
+.hotelmenu-submit-btn[disabled]{opacity:0.5;cursor:not-allowed}
+
+/* modal overlay */
+.modal-overlay{position:fixed;inset:0;background:linear-gradient(180deg, rgba(11,12,14,0.33), rgba(11,12,14,0.28));display:flex;align-items:center;justify-content:center;z-index:1400;padding:22px}
+.modal-card{width:100%;max-width:920px;background:var(--surface);border-radius:14px;padding:18px;box-shadow:0 30px 80px rgba(0,0,0,0.18);}
+.modal-head{display:flex;justify-content:space-between;align-items:center}
+.modal-head h3{margin:0}
+.modal-head button{background:transparent;border:0;font-size:20px;cursor:pointer}
+.orders-table-wrap{overflow:auto;margin-top:12px}
+.orders-table{width:100%;border-collapse:collapse}
+.orders-table th, .orders-table td{padding:10px;text-align:left;border-bottom:1px solid rgba(0,0,0,0.04)}
+.status-badge{padding:6px 8px;border-radius:999px;font-weight:700;font-size:12px}
+.status-badge.done{background:linear-gradient(90deg,#e6fff0,#d3f8e0);color:var(--success)}
+.status-badge.pending{background:linear-gradient(90deg,#fff7ea,#fff0df);color:#b36300}
+
+/* loading / error states */
+.hotelmenu-loading.large{padding:36px;text-align:center;font-size:18px}
+.hotelmenu-error{padding:30px;text-align:center;color:var(--danger)}
+
+/* small screens */
+@media (max-width:880px){
+  .hotelmenu-menu-container{grid-template-columns:repeat(auto-fill,minmax(220px,1fr));}
+  .order-drawer{right:-100%;left:6px;top:auto;bottom:16px;width:calc(100% - 12px);height:360px;border-radius:12px}
+  .order-drawer.open{right:6px}
+}
+
+@media (max-width:480px){
+  .hotelmenu-topbar{padding:12px}
+  .hotelmenu-container{padding:12px}
+  .hotelmenu-brand{gap:8px}
+  .hotelmenu-menu-container{grid-template-columns:1fr}
+}
+
+/* subtle entrance animations */
+@keyframes fadeInUp{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@keyframes popIn{from{opacity:0;transform:scale(.98)}to{opacity:1;transform:scale(1)}}
+.hotelmenu-card{animation:popIn 360ms ease forwards}
+.hotelmenu-card[style*="animationDelay"]{opacity:0}
+.hotelmenu-card[style*="animationDelay"]:nth-child(1){animation-delay:60ms}
+
+/* modal table responsiveness */
+.orders-table th:nth-child(1){width:40px}
+.orders-table td{vertical-align:middle}
+
+/* focus & accessibility */
+button:focus{outline:3px solid rgba(255,107,61,0.14);outline-offset:3px}
+
+/* reduced motion support */
+@media (prefers-reduced-motion: reduce){
+  *{transition:none!important;animation:none!important}
+}
+
+/* extra polish - floating checkout chip */
+.checkout-chip{position:fixed;right:22px;bottom:22px;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#fff;padding:12px 18px;border-radius:999px;font-weight:800;box-shadow:0 12px 36px rgba(255,107,61,0.18);display:flex;gap:10px;align-items:center;z-index:1500}
+
+/* ripple effect for add button (JS-free) */
+.hotelmenu-add-btn{position:relative;overflow:hidden}
+.hotelmenu-add-btn::after{content:"";position:absolute;inset:0;border-radius:inherit;transform:scaleX(0);transform-origin:left center;background:linear-gradient(90deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));transition:transform 420ms cubic-bezier(.2,.9,.2,1)}
+.hotelmenu-add-btn:active::after{transform:scaleX(1)}
+
+/* dev utilities (remove in production) */
+/* .hotelmenu-card{border:1px dashed rgba(0,0,0,0.02)} */
+
+/* end of file */
+
+
+/*.hotelmenu-container {
+  padding: 20px;
+  background-color: #fffbe7;
+  text-align: center;
+}
+
+.hotelmenu-back-btn {
+  background: orange;
+  color: white;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
+
+.hotelmenu-name {
+  font-size: 24px;
+  margin: 10px 0;
+}
+
+.hotelmenu-menu-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.hotelmenu-card {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  width: 200px;
+}
+
+.hotelmenu-title {
+  font-weight: bold;
+  color: orange;
+}
+
+.hotelmenu-price {
+  margin: 5px 0;
+  font-size: 16px;
+}
+
+.hotelmenu-add-btn {
+  background: crimson;
+  color: white;
+  border: none;
+  padding: 8px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.hotelmenu-order-form {
+  margin-top: 25px;
+  padding: 20px;
+  background: #fff3e0;
+  border-radius: 10px;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hotelmenu-order-form input {
+  display: block;
+  width: 100%;
+  margin: 8px 0;
+  padding: 10px;
+  border: 1px solid orange;
+  border-radius: 6px;
+}
+
+.hotelmenu-submit-btn {
+  width: 100%;
+  background: green;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

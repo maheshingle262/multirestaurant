@@ -1,0 +1,321 @@
+/* ===========================
+   Variables (dark by default)
+   =========================== */
+:root {
+  --nav-bg: rgba(10, 12, 15, 0.5);
+  --nav-border: rgba(255,255,255,0.06);
+  --btn-bg: rgba(255,255,255,0.06);
+  --btn-hover: rgba(255,255,255,0.12);
+  --text-main: #ffffff;
+  --muted: rgba(255,255,255,0.7);
+  --accent: #ffbf00;
+  --danger: rgba(255,80,80,0.28);
+  --glass-blur: 10px;
+}
+
+/* Light theme overrides */
+.theme-light {
+  --nav-bg: rgba(255,255,255,0.85);
+  --nav-border: rgba(0,0,0,0.06);
+  --btn-bg: rgba(0,0,0,0.06);
+  --btn-hover: rgba(0,0,0,0.09);
+  --text-main: #0f1724;
+  --muted: rgba(15,23,36,0.7);
+  --accent: #ff9f1c;
+  --danger: rgba(255,80,80,0.12);
+}
+
+/* MAIN NAVBAR */
+.fancy-nav {
+  position: sticky;
+  top: 12px;              /* sticky offset */
+  z-index: 9999;
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 12px 26px;
+  border-radius: 12px;
+  margin: 12px;
+  backdrop-filter: blur(var(--glass-blur));
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.00)), var(--nav-bg);
+  border: 1px solid var(--nav-border);
+
+  box-shadow: 0 10px 30px rgba(2,6,23,0.45);
+  transition: all 240ms ease;
+}
+
+/* Shrink slightly when scrolled */
+.fancy-nav.scrolled {
+  transform: translateY(-6px) scale(0.995);
+  padding: 8px 22px;
+  box-shadow: 0 14px 40px rgba(2,6,23,0.6);
+}
+
+/* LEFT - Logo */
+.logo-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--text-main);
+  font-weight: 700;
+  font-size: 16px;
+  padding: 6px 8px;
+  border-radius: 8px;
+}
+
+.logo-anim {
+  display: inline-block;
+  font-size: 20px;
+  transform-origin: center;
+  animation: logo-bob 2200ms ease-in-out infinite;
+}
+
+/* little spin + scale on hover */
+.logo-btn:hover .logo-anim {
+  transform: rotate(12deg) scale(1.08);
+}
+
+/* brand text slight highlight */
+.brand-text {
+  color: var(--text-main);
+  letter-spacing: 0.6px;
+}
+
+/* CENTER */
+.nav-center {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+/* Basic nav button */
+.nav-btn {
+  padding: 8px 14px;
+  border: none;
+  margin: 0 6px;
+  font-size: 15px;
+  color: var(--text-main);
+  background: var(--btn-bg);
+  border-radius: 10px;
+  backdrop-filter: blur(6px);
+  cursor: pointer;
+  transition: transform 180ms ease, background 180ms ease, box-shadow 180ms ease;
+  position: relative;
+  overflow: visible;
+}
+
+/* For nav links (we add underline animation) */
+.nav-link {
+  background: transparent;
+  padding: 10px 12px;
+  border-radius: 6px;
+}
+
+/* Hover micro-lift */
+.nav-btn:hover {
+  transform: translateY(-3px);
+  background: var(--btn-hover);
+  box-shadow: 0 8px 22px rgba(0,0,0,0.15);
+}
+
+/* Active link glow */
+.active-btn {
+  background: linear-gradient(90deg, rgba(255,255,255,0.03), rgba(255,255,255,0.06));
+  box-shadow: 0 6px 24px rgba(0,0,0,0.22), 0 0 12px rgba(255,190,0,0.08);
+  outline: 1px solid rgba(255,190,0,0.08);
+}
+
+/* Sign-in smaller */
+.small-btn {
+  padding: 6px 10px !important;
+  font-size: 13px !important;
+  border-radius: 8px;
+}
+
+/* Danger button */
+.danger {
+  background: var(--danger);
+}
+
+.danger:hover { background: rgba(255,80,80,0.42); }
+
+/* RIGHT */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* user name style */
+.hello {
+  margin-right: 6px;
+  font-size: 14px;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.hello:hover { color: var(--text-main); text-shadow: 0 0 10px rgba(0,0,0,0.2); }
+
+/* online status */
+.status.online { color: #00ff9d; font-weight: 700; margin-left: 6px; }
+
+/* ripple (keeps previous behavior) */
+.ripple { position: relative; overflow: hidden; }
+.ripple:after {
+  content:"";
+  position:absolute;
+  left:50%;
+  top:50%;
+  width:6px;height:6px;
+  background: rgba(255,255,255,0.25);
+  border-radius:50%;
+  transform: translate(-50%,-50%) scale(1);
+  opacity: 0.8;
+  transition: transform 0.6s ease-out, opacity 0.6s;
+}
+.ripple:active:after { transform: translate(-50%,-50%) scale(30); opacity: 0; }
+
+/* Theme toggle icon button */
+.icon-btn {
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: var(--muted);
+}
+.icon-btn:hover { color: var(--text-main); transform: translateY(-3px); }
+
+/* =========================
+   Moving underline animation
+   ========================= */
+/* a small element under each nav-link that grows left-right with a glowing gradient */
+.nav-link .moving-underline {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 6px;
+  height: 3px;
+  border-radius: 99px;
+  background: linear-gradient(90deg, transparent, transparent);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 280ms cubic-bezier(.2,.9,.2,1), opacity 180ms;
+  opacity: 0;
+}
+
+/* show on hover or active */
+.nav-link:hover .moving-underline,
+.nav-link.active-btn .moving-underline,
+.nav-link:focus .moving-underline {
+  transform: scaleX(1);
+  opacity: 1;
+  background: linear-gradient(90deg, rgba(255,160,0,0.95), rgba(255,80,80,0.95), rgba(255,160,0,0.95));
+  box-shadow: 0 6px 18px rgba(255,150,20,0.14), 0 0 18px rgba(255,120,20,0.08);
+  animation: underline-glow 2.8s linear infinite;
+}
+
+/* subtle shifting gradient animation */
+@keyframes underline-glow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.nav-link .moving-underline { background-size: 200% 100%; }
+
+/* Logo animation bob */
+@keyframes logo-bob {
+  0% { transform: translateY(0) rotate(0); }
+  25% { transform: translateY(-2px) rotate(-3deg); }
+  50% { transform: translateY(0) rotate(0); }
+  75% { transform: translateY(-2px) rotate(3deg); }
+  100% { transform: translateY(0) rotate(0); }
+}
+
+/* small responsive adjustments */
+@media (max-width: 880px) {
+  .fancy-nav { padding: 10px 12px; }
+  .nav-center { display: none; } /* you can convert to a burger menu later */
+  .brand-text { display: none; }
+}
+
+/* accessibility focus states */
+.nav-btn:focus, .icon-btn:focus, .logo-btn:focus {
+  outline: 2px dashed rgba(255,255,255,0.12);
+  outline-offset: 4px;
+}
+
+
+
+
+
+
+
+
+
+/*
+.navbar {
+  background-color: #ffa500;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  border-radius: 0 0 12px 12px;
+}
+
+/* Left for home button /
+.nav-left {
+  display: flex;
+  align-items: center;
+}
+
+/* Right side buttons (About, Order List, Admin Panel) /
+.nav-right {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+/* Common button styling /
+.nav-btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 500;
+  background-color: white;
+  color: #2c3e50;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease-in-out;
+}
+
+/* Transition effect: white → orange on hover /
+.nav-btn:hover {
+  background-color: #ff8000;
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Home-specific styling (optional) /
+.home-btn {
+  font-weight: bold;
+}*/
+
+
+
+
+
+
+
+
+
+
+
+

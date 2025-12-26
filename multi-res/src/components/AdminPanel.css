@@ -1,0 +1,94 @@
+
+
+
+
+.admin-form-container {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #fff3e0;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.admin-form-container h2 {
+  text-align: center;
+  color: #d2691e;
+}
+
+.admin-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.admin-form input,
+.admin-form select {
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #ffa726;
+  border-radius: 6px;
+}
+
+.admin-form button {
+  padding: 10px;
+  background-color: #ff9800;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.admin-form button:hover {
+  background-color: #fb8c00;
+}
+.back-btn {
+  background-color: #e74c3c;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-bottom: 16px;
+  margin-right: 12px;
+  transition: background-color 0.3s ease;
+}
+
+.back-btn:hover {
+  background-color: #c0392b;
+}
+.admin-panel {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.admin-form-container {
+  background: #fff3e0;
+  padding: 20px;
+  border-radius: 8px;
+  width: 350px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.admin-form input,
+.admin-form select,
+.admin-form textarea,
+.admin-form button {
+  width: 100%;
+  margin: 8px 0;
+  padding: 10px;
+}
+
+.admin-form button {
+  background-color: orange;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}

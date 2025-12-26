@@ -1,0 +1,276 @@
+.welcome-section {
+  height: 100vh;
+  background-image: url('https://images.unsplash.com/photo-1552566626-52f8b828add9');
+
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  font-family: 'Poppins', sans-serif;
+  overflow: hidden;
+}
+
+/* 🔥 Dark Gradient Layer */
+.welcome-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom right, rgba(0,0,0,0.8), rgba(0,0,0,0.4));
+  z-index: 0;
+}
+
+.overlay {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: white;
+  padding: 60px;
+  max-width: 850px;
+  animation: fadeIn 1.2s ease-out;
+}
+
+/* 🔥 Main Title */
+.brand-name {
+  font-size: 3.8rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-shadow: 0px 4px 15px rgba(0,0,0,0.7);
+}
+
+.brand-name span {
+  color: #ffcc00;
+}
+
+/* Tagline */
+.main-line {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: #f8f8f8;
+  font-weight: 500;
+  animation: slideIn 1.3s ease;
+}
+
+/* Sub-description */
+.sub-line {
+  font-size: 1.2rem;
+  color: #e5e5e5;
+  margin-bottom: 35px;
+}
+
+/* Buttons Row */
+.button-row {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+
+/* 🔘 Main Button */
+.explore-btn {
+  padding: 14px 38px;
+  font-size: 1.15rem;
+  border-radius: 40px;
+  border: none;
+  cursor: pointer;
+  color: white;
+  background: linear-gradient(135deg, #e74c3c, #ff7675);
+  box-shadow: 0 6px 20px rgba(231, 76, 60, 0.6);
+  transition: all 0.3s ease;
+}
+
+.explore-btn:hover {
+  transform: translateY(-4px) scale(1.05);
+  background: linear-gradient(135deg, #c0392b, #ff4d4d);
+}
+
+/* 🔘 Secondary Button */
+.explore-btn.secondary {
+  background: linear-gradient(135deg, #f39c12, #f1c40f);
+  box-shadow: 0 6px 20px rgba(243, 156, 18, 0.5);
+}
+
+.explore-btn.secondary:hover {
+  background: linear-gradient(135deg, #d68910, #f39c12);
+  transform: translateY(-4px) scale(1.05);
+}
+
+/* ✨ Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* 📱 Responsive */
+@media (max-width: 768px) {
+  .brand-name {
+    font-size: 2.8rem;
+  }
+  .main-line {
+    font-size: 1.4rem;
+  }
+  .sub-line {
+    font-size: 1rem;
+  }
+  .button-row {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*.welcome-section {
+  height: 100vh;
+  background-image: url('https://images.unsplash.com/photo-1552566626-52f8b828add9'); /* Change image URL if needed /
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  position: relative;
+  font-family: 'Segoe UI', sans-serif;
+  overflow: hidden;
+}
+
+/* Light gradient overlay effect /
+.welcome-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom right, rgba(0,0,0,0.7), rgba(0,0,0,0.4));
+  z-index: 0;
+}
+
+.overlay {
+  position: relative;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 70px 50px;
+  border-radius: 20px;
+  text-align: center;
+  max-width: 800px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+  animation: fadeIn 1.2s ease-out;
+}
+
+.brand-name {
+  font-size: 3.5rem;
+  color: #ff4d4d;
+  font-weight: 800;
+  margin-bottom: 25px;
+  letter-spacing: 2px;
+  text-shadow: 0px 4px 12px rgba(0,0,0,0.6);
+}
+
+.main-line {
+  font-size: 1.8rem;
+  margin-bottom: 18px;
+  font-weight: 500;
+  line-height: 1.6;
+  color: #f1f1f1;
+  animation: slideIn 1.5s ease;
+}
+
+.sub-line {
+  font-size: 1.3rem;
+  margin-bottom: 35px;
+  font-weight: 300;
+  line-height: 1.5;
+  color: #ddd;
+}
+
+.explore-btn {
+  padding: 14px 40px;
+  font-size: 1.1rem;
+  background: linear-gradient(135deg, #e74c3c, #ff7675);
+  border: none;
+  border-radius: 35px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 6px 20px rgba(231, 76, 60, 0.6);
+}
+
+.explore-btn:hover {
+  background: linear-gradient(135deg, #c0392b, #ff4d4d);
+  transform: scale(1.08);
+  box-shadow: 0 8px 25px rgba(192, 57, 43, 0.7);
+}
+
+/* Animations /
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-50px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+
+
+
+
+
+.button-row {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.explore-btn {
+  padding: 14px 40px;
+  font-size: 1.1rem;
+  background: linear-gradient(135deg, #e74c3c, #ff7675);
+  border: none;
+  border-radius: 35px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 6px 20px rgba(231, 76, 60, 0.6);
+}
+
+.explore-btn:hover {
+  background: linear-gradient(135deg, #c0392b, #ff4d4d);
+  transform: scale(1.08);
+  box-shadow: 0 8px 25px rgba(192, 57, 43, 0.7);
+}
+
+/* Secondary button (Visit More Hotels) /
+.explore-btn.secondary {
+  background: linear-gradient(135deg, #f39c12, #f1c40f);
+  box-shadow: 0 6px 20px rgba(243, 156, 18, 0.6);
+}
+
+.explore-btn.secondary:hover {
+  background: linear-gradient(135deg, #d68910, #f39c12);
+  transform: scale(1.08);
+  box-shadow: 0 8px 25px rgba(214, 137, 16, 0.7);
+}*/
